@@ -1,12 +1,12 @@
-const questions = [
+const employeeQuestions = [
     {
       type: "input",
-      message: "What is your name?",
+      message: "Please enter your Name:",
       name: "name",
     },
     {
       type: "input",
-      message: "What is your employee ID?",
+      message: "Enter your employee ID:",
       name: "id",
     },
     {
@@ -16,13 +16,13 @@ const questions = [
     },
     {
       type: "list",
-      message: "What role do you have?",
+      message: "Enter your role:",
       choices: ["Manager", "Engineer", "Intern"],
       name: "role",
     },
     {
       type: "input",
-      message: "What is your office number",
+      message: "Enter your number:",
       name: "officeNumber",
       when: function (answers) {
         return answers.role === "Manager";
@@ -39,7 +39,7 @@ const questions = [
     },
     {
       type: "input",
-      message: "What is your GitHub ID?",
+      message: "Enter your GitHub ID:",
       name: "github",
       when: function (answers) {
         return answers.role === "Engineer";
@@ -47,7 +47,7 @@ const questions = [
     },
     {
       type: "input",
-      message: "What school do you go to?",
+      message: "Enter your School information:",
       name: "school",
       when: function (answers) {
         return answers.role === "Intern";
@@ -56,7 +56,7 @@ const questions = [
     {
       type: "confirm",
       name: "addEmp",
-      message: "Enter another input? ",
+      message: "Other:",
       default: true,
     },
   ];

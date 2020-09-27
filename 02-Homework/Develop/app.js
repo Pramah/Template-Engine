@@ -13,10 +13,10 @@ const render = require("./lib/htmlRenderer");
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
-const questions = require("./questions");
+const employeeQuestions = require("./questions");
 
 const employeeResponse = async (inputs = []) => {
-    const empQuestions = questions;
+    const empQuestions = employeeQuestions;
     const { addEmp, ...response } = await inquirer.prompt(empQuestions);
     const newInputs = [...inputs, response];
     return addEmp ? empInputs(newInputs) : newInputs;
