@@ -13,11 +13,11 @@ const render = require("./lib/htmlRenderer");
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
-const questions = require("./quesions");
+const questions = require("./questions");
 
 const employeeResponse = async (inputs = []) => {
-    const employeeQuestions = questions;
-    const { addEmp, ...response } = await inquirer.prompt(employeeQuestions);
+    const empQuestions = questions;
+    const { addEmp, ...response } = await inquirer.prompt(empQuestions);
     const newInputs = [...inputs, response];
     return addEmp ? empInputs(newInputs) : newInputs;
   };
@@ -58,29 +58,29 @@ function renderEmployeeHtml(employees) {
 function createArrayOfEmployeeObjects(inputs) {
     let employees = []; 
   
-    inputs.forEach((reposnse) => {
-      if (reposnse.role === "Manager") {
+    inputs.forEach((response) => {
+      if (response.role === "Manager") {
         let manager = new Manager(
-          reposnse.name,
-          reposnse.id,
-          reposnse.email,
-          reposnse.officeNumber
+          response.name,
+          response.id,
+          response.email,
+          response.officeNumber
         );
         employees.push(manager);
-      } else if (reposnse.role === "Engineer") {
+      } else if (response.role === "Engineer") {
         let engineer = new Engineer(
-          reposnse.name,
-          reposnse.id,
-          reposnse.email,
-          reposnse.github
+          response.name,
+          response.id,
+          response.email,
+          response.github
         );
         employees.push(engineer);
-      } else if (reposnse.role === "Intern") {
+      } else if (response.role === "Intern") {
         let intern = new Intern(
-          reposnse.name,
-          reposnse.id,
-          reposnse.email,
-          reposnse.school
+          response.name,
+          response.id,
+          response.email,
+          response.school
         );
         employees.push(intern);
       }
